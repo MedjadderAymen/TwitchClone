@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitch_clone/constants.dart';
+import 'package:twitch_clone/screens/following/game_detail.dart';
 
 class Following extends StatelessWidget {
   const Following({Key? key}) : super(key: key);
@@ -121,36 +122,43 @@ class Following extends StatelessWidget {
                       title: 'Call Of Duty - BLACK OPS II',
                       viewers: "190.1K",
                       cover: "assets/images/cod.jpg",
+                      followers: "741.47k",
                     ),
                     CategoryWidget(
                       title: 'Assassin CREED III',
                       viewers: "12.5K",
                       cover: "assets/images/assasin.jpg",
+                      followers: "452.88k",
                     ),
                     CategoryWidget(
                       title: 'Fortnite',
                       viewers: "26.6K",
                       cover: "assets/images/fortnine.jpg",
+                      followers: "258.52k",
                     ),
                     CategoryWidget(
                       title: 'FARCRY 5',
                       viewers: "90.8K",
                       cover: "assets/images/farcry.jpg",
+                      followers: "66.1k",
                     ),
                     CategoryWidget(
                       title: 'Star Wars - Jedi',
                       viewers: "13.1K",
                       cover: "assets/images/starwars.jpg",
+                      followers: "855.4k",
                     ),
                     CategoryWidget(
                       title: 'Watch Dogs',
                       viewers: "150.4K",
                       cover: "assets/images/watch_dogs.jpg",
+                      followers: "866.77k",
                     ),
                     CategoryWidget(
                       title: 'TitanFall',
                       viewers: "156.9K",
                       cover: "assets/images/titanfall.jpg",
+                      followers: "962.25k",
                     ),
                   ],
                 ),
@@ -455,59 +463,73 @@ class Channels extends StatelessWidget {
 }
 
 class CategoryWidget extends StatelessWidget {
-  String? cover, title, viewers;
+  String? cover, title, viewers, followers;
 
-  CategoryWidget({this.cover, this.title, this.viewers});
+
+  CategoryWidget({this.cover, this.title, this.viewers, this.followers});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 10),
-      width: 100,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 130,
-            width: 100,
-            decoration: BoxDecoration(color: Colors.black),
-            child: Image.asset(
-              cover!,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(title!,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: kTitleTextStyle.copyWith(
-                  fontSize: 14, fontWeight: FontWeight.w600)),
-          SizedBox(
-            height: 5,
-          ),
-          Row(
-            children: [
-              Container(
-                width: 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: kOnlineColor,
-                  shape: BoxShape.circle,
+
+    List<String> tags = <String>[];
+    tags.add('FPS/GRE Games');
+    tags.add('English');
+
+    return InkWell(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => GameDetail(cover: cover!,game: title, viewers: viewers,followers: followers,tags: tags)));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 10),
+        width: 100,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Hero(
+              tag: cover!,
+              child: Container(
+                height: 130,
+                width: 100,
+                decoration: BoxDecoration(color: Colors.black),
+                child: Image.asset(
+                  cover!,
+                  fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(
-                width: 5,
-              ),
-              Text(
-                viewers!,
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Text(title!,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: kTitleTextStyle.copyWith(
-                    fontSize: 12, fontWeight: FontWeight.w600),
-              )
-            ],
-          ),
-        ],
+                    fontSize: 14, fontWeight: FontWeight.w600)),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                Container(
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: kOnlineColor,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  viewers!,
+                  style: kTitleTextStyle.copyWith(
+                      fontSize: 12, fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

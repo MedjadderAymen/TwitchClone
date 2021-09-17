@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 // Colors
 const kTextColor = Color(0xFF000300);
 const kPurpleColor = Color(0xFF6441A5);
-const kOnlineColor = Color(0xFFE91916);
-const kOfflineColor = Color(0xFF16E94B);
+const kOfflineColor = Color(0xFFE91916);
+const kOnlineColor = Color(0xFF16E94B);
 
 // My Text Styles
 const kHeadingextStyle = TextStyle(
