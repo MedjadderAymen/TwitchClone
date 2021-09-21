@@ -208,7 +208,7 @@ class GameDetail extends StatelessWidget {
                               liveWidget(
                                 tags: tags,
                                 cover: "assets/images/thumbnails/game6.jpg",
-                                viewers: "981",
+                                viewers: "652",
                                 profile: "assets/images/profils/user5.jpeg",
                                 name: "NRG_JZR",
                                 game: game!,
