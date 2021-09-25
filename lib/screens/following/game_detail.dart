@@ -226,10 +226,10 @@ class GameDetail extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        child: Text('vcdfv 2 '),
+                        child: Text('Tab 2'),
                       ),
                       Container(
-                        child: Text('vcdfv 3 '),
+                        child: Text('Tab 3'),
                       ),
                     ],
                   ),
