@@ -29,10 +29,24 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
+  flutter_native_splash: ^1.2.3
+
+# run: flutter clean && flutter pub get && flutter pub run flutter_native_splash:create
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
+# run: flutter clean && flutter pub get && flutter pub run flutter_native_splash:create
+flutter_native_splash:
+  color: "#6441A5"
+  color_dark: "#181818"
+  image: assets/images/twitch.png
+  image_dark: assets/images/twitch.png
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
